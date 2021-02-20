@@ -100,3 +100,21 @@ li a:hover:not(.active) {
     justify-content: center;
     background-color: #090909;
 }
+.currently-empty-box{
+    margin: 0 auto;
+    height: 200px;
+    width: 600px;
+    border: 2px solid white;
+}
+
+.end-information{
+    margin-top: 40px;
+    width: fit-content;
+    display: inline-flex;
+}
+.right-div{
+    margin-left: 20px;
+}
+.left-div{
+    margin-right: 20px;
+}
