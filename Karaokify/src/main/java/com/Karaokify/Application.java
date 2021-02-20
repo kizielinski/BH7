@@ -75,14 +75,14 @@ public final class Application {
    */
   public static void main(String[] args) {
     // initialize Logging
-    try {
-      ClassLoader classLoader = Application.class.getClassLoader();
-      final InputStream logConfig = classLoader.getResourceAsStream("log.properties");
-      LogManager.getLogManager().readConfiguration(logConfig);
-    } catch (Exception e) {
-      e.printStackTrace();
-      System.err.println("Could not initialize log manager because: " + e.getMessage());
-    }
+//    try {
+//      ClassLoader classLoader = Application.class.getClassLoader();
+//      final InputStream logConfig = classLoader.getResourceAsStream("log.properties");
+//      LogManager.getLogManager().readConfiguration(logConfig);
+//    } catch (Exception e) {
+//      e.printStackTrace();
+//      System.err.println("Could not initialize log manager because: " + e.getMessage());
+//    }
 
     // The application uses FreeMarker templates to generate the HTML
     // responses sent back to the client. This will be the engine processing
