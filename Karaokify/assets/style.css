@@ -1,7 +1,7 @@
 body {
     background-color: #f2f2f2;
     margin: 0px;
-    font-family: tahoma;
+    font-family: 'Archivo', sans-serif;
     color: #282828;
 }
 
@@ -48,5 +48,38 @@ li a:hover:not(.active) {
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: rgba(251, 97, 7, 1);
+    color: black;
+}
+
+.header-info{
+    padding: 20px;
+    background-color: rgba(67, 84, 117, 1);
+    justify-content: center;
+    text-align: center;
+    color: #f2f2f2;
+    height: 300px;
+}
+.h1, .h5{
+    font-weight: normal !important;
+}
+.header-buttons {
+    margin-top:10px;
+
+}
+.header-button {
+    margin-top:30px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-width: 0;
+}
+.start-button {
+    margin-right: 5px;
+}
+.outline-styling {
+    margin-left: 5px;
+    border-color: white;
+    border-width: 3px;
+    background-color: transparent;
 }
