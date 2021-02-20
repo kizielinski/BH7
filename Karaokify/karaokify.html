@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <meta charset="UTF-8" />
+    <title>Vue Mastery</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="./assets/style.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
 </head>
 <body>
-    <script src="assets/js/components.js"></script>
-    <script src="assets/js/app.js"></script>
+<div id="app">
+    <div class="nav-bar">
+        <label class="nav-label">A Brick Layer product</label>
+        <button class="nav-button">Home</button>
+        <button class="nav-button">Product</button>
+        <button class="nav-button">About</button>
+        <button class="nav-button">Contact Us</button>
+    </div>
+
+</div>
+
+<!-- Import App -->
+<script src="./main.js"></script>
+
+<!-- Import Components -->
+<script src="./components/ProductDisplay.js"></script>
+
+<!-- Mount App -->
+<script>
+    const mountedApp = app.mount('#app')
+</script>
 </body>
 </html>
