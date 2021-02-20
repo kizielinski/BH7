@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.webcheckers</groupId>
-    <artifactId>checkers-app</artifactId>
+    <groupId>com.Karaokify</groupId>
+    <artifactId>karaokify-app</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>Karaokify</name>
@@ -94,6 +94,7 @@
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
+
         <!-- END: Unit testing libraries -->
 
     </dependencies>
@@ -117,7 +118,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>${maven.exec.version}</version>
                 <configuration>
-                    <mainClass>com.webcheckers.Application</mainClass>
+                    <mainClass>com.Karaokify.Application</mainClass>
                 </configuration>
                 <executions>
                     <!-- Run all tier-specific unit test with code coverage
@@ -175,7 +176,7 @@
                     <descriptors>
                         <descriptor>src/assembly/zip.xml</descriptor>
                     </descriptors>
-                    <finalName>WebCheckers</finalName>
+                    <finalName>Karaokify</finalName>
                     <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <goals>
@@ -250,7 +251,7 @@
                         <id>ui</id>
                         <configuration>
                             <footer>UI Tier</footer>
-                            <title>WebCheckers UI Tier Test Coverage</title>
+                            <title>Karaokify UI Tier Test Coverage</title>
                             <outputDirectory>target/site/jacoco/ui</outputDirectory>
                         </configuration>
                         <goals>
@@ -261,7 +262,7 @@
                         <id>appl</id>
                         <configuration>
                             <footer>Application Tier</footer>
-                            <title>WebCheckers Application Tier Test Coverage</title>
+                            <title>Karaokify Application Tier Test Coverage</title>
                             <outputDirectory>target/site/jacoco/appl</outputDirectory>
                         </configuration>
                         <goals>
@@ -272,7 +273,7 @@
                         <id>model</id>
                         <configuration>
                             <footer>Model Tier</footer>
-                            <title>WebCheckers Model Tier Test Coverage</title>
+                            <title>Karaokify Model Tier Test Coverage</title>
                             <outputDirectory>target/site/jacoco/model</outputDirectory>
                         </configuration>
                         <goals>
