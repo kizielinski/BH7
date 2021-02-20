@@ -83,3 +83,20 @@ li a:hover:not(.active) {
     border-width: 3px;
     background-color: transparent;
 }
+.bottom-page{
+    height: calc(100% - 400px);
+    background-color: black;
+    justify-content: center;
+    text-align: center;
+    color: #f2f2f2;
+}
+.container{
+    /*width: 60%;*/
+    margin: 0 auto;
+}
+#app{
+    display: inline-block;
+    horiz-align: center;
+    justify-content: center;
+    background-color: #090909;
+}
