@@ -38,14 +38,15 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <div v-if="canVote">
-                <p style="font-size: 28px;">For the next song, vote for ...</p>
-                <input type="radio" id="vote-song-1" name="next-song" value="1">
-                <label for="vote-song-1">Song One Information Here</label><br>
-                <input type="radio" id="vote-song-2" name="next-song" value="2">
-                <label for="vote-song-2">Song One Information Here</label><br>
-                <input type="radio" id="vote-song-3" name="next-song" value="3">
-                <label for="vote-song-1">Song One Information Here</label>
-                <div class="close">Cast Vote</div>
+                    <p style="font-size: 28px;">Here you can vote for the next song to be played in the queue</p>
+                    <p style="font-size: 22px;">For the next song, vote for ...</p>
+                    <input type="radio" id="vote-song-1" name="next-song" value="1">
+                    <label for="vote-song-1">Song One Information Here</label><br>
+                    <input type="radio" id="vote-song-2" name="next-song" value="2">
+                    <label for="vote-song-2">Song One Information Here</label><br>
+                    <input type="radio" id="vote-song-3" name="next-song" value="3">
+                    <label for="vote-song-1">Song One Information Here</label>
+                    <div class="close">Cast Vote</div>
                 </div>
                 <!--<div v-of="!canVote">-->
                     <!--<h3>Voting is close currently</h3>-->
@@ -54,7 +55,15 @@
         </div>
     </div>
     <div class="karaoke-screen">
-        <div class="main-player"></div>
+        <div class="main-player">
+            <span v-if="singer == 'null'">
+                Please wait for the singer to be selected!
+            </span>
+            <span v-else>
+                singer selected
+            </span>
+        </div>
+
         <div id="root" class="sub-players">
                 <div class="single-player-view" v-for="players in lobby">player goes here</div>
         </div>
@@ -62,7 +71,7 @@
     <div class="lyrics area">
         <h2>Lyrics</h2>
         <div>Don't know the lyrics, no problem! Follow along with the song below!</div>
-        <div>Lyrics go here</div>
+        <div id="lyr"></div>
     </div>
 </div>
 
@@ -72,10 +81,24 @@
         el: '#root',
         data: {
             title: 'v-for demo',
-            names: ['ford', "toyota"],
             lobby: ['player1', 'player2', 'player3', 'player4', "player5", "player5", "player5", "player5"],
+            singer: "null",
+            lyrics: "lyric doo wap",
+        },
+        methods: {
         }
-    })
+    });
+    let lyrics = new Vue({
+        el: '#lyr',
+        data: {
+            artist: '',
+            title: '',
+            lyrics: "lyric doo wap",
+        },
+        methods: {
+        }
+    });
+
     // Get the modal
     var modal = document.getElementById("myModal");
 
@@ -88,12 +111,12 @@
     // When the user clicks the button, open the modal
     btn.onclick = function() {
         modal.style.display = "block";
-    }
+    };
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
-    }
+    };
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
@@ -102,48 +125,24 @@
         }
     }
 
-    //Make the DIV element draggagle:
-    dragElement(document.getElementById("mydiv"));
+    const getLyrics = async (artist, song) => {
+        var request = new XMLHttpRequest();
 
-    function dragElement(elmnt) {
-        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-        if (document.getElementById(elmnt.id + "header")) {
-            /* if present, the header is where you move the DIV from:*/
-            document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-        } else {
-            /* otherwise, move the DIV from anywhere inside the DIV:*/
-            elmnt.onmousedown = dragMouseDown;
-        }
+        request.open('GET', 'https://api.lyrics.ovh/v1/' + artist + '/' + song, true);
+        request.onload = function () {
+            var data = JSON.parse(this.response);
+            returnLyrics = data.lyrics;
 
-        function dragMouseDown(e) {
-            e = e || window.event;
-            e.preventDefault();
-            // get the mouse cursor position at startup:
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            document.onmouseup = closeDragElement;
-            // call a function whenever the cursor moves:
-            document.onmousemove = elementDrag;
-        }
+            const card = document.getElementById('lyr')
+            card.innerText = data.lyrics;
 
-        function elementDrag(e) {
-            e = e || window.event;
-            e.preventDefault();
-            // calculate the new cursor position:
-            pos1 = pos3 - e.clientX;
-            pos2 = pos4 - e.clientY;
-            pos3 = e.clientX;
-            pos4 = e.clientY;
-            // set the element's new position:
-            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-        }
-
-        function closeDragElement() {
-            /* stop moving when mouse button is released:*/
-            document.onmouseup = null;
-            document.onmousemove = null;
-        }
+            return returnLyrics;
+        };
+        request.send();
     }
+    // getLyrics('Rick Astley', 'Never Gonna Give You Up');
+    // getLyrics('ABBA', 'Dancing Queen');
+    getLyrics('Fountains of Wayne', 'Stacy’s Mom')
+    // getLyrics('Coldplay', 'Adventure of a Lifetime');
 </script>
 </html>

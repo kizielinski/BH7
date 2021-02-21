@@ -245,4 +245,8 @@ img{
     font-size: 18px;
     align-self: center;
     margin: 20px auto;
+    text-space: 5;
+}
+a{
+    color:#FFF047;
 }
