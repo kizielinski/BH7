@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/XSL/Transform">
 <head>
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/style.css" />
     <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+    <!--<script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo&display=swap');
     </style>
@@ -27,9 +28,28 @@
         <div>Current Singer</div>
         <div>Singers Name Here</div>
     </div>
-    <div class="main-player"></div>
-    <div class="sub-players"></div>
+    <div class="karaoke-screen">
+        <div class="main-player"></div>
+        <div id="root" class="sub-players">
+                <div class="single-player-view" v-for="players in lobby">player goes here</div>
+        </div>
+    </div>
+    <div class="lyrics area">
+        <h2>Lyrics</h2>
+        <div>Don't know the lyrics, no problem! Follow along with the song below!</div>
+        <div>Lyrics go here</div>
+    </div>
 </div>
 
 </body>
+<script>
+    let app = new Vue({
+        el: '#root',
+        data: {
+            title: 'v-for demo',
+            names: ['ford', "toyota"],
+            lobby: ['player1', 'player2', 'player3', 'player4', "player5", "player5", "player5", "player5"],
+        }
+    })
+</script>
 </html>

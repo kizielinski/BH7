@@ -19,7 +19,7 @@ h3 {
     padding: 0;
     overflow: hidden;
     background: rgba(1, 1, 1, 1);
-    width: 100vw;
+    width: 100%;
     height: 100px;
     -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
     -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
@@ -136,10 +136,43 @@ img{
     height: 100px!important;
 }
 .main-player {
-
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 800px;
+    height: 650px;
+    background: gold;
 }
 .brick-img{
     top: 0px;
     height:120px;
     width: auto;
+}
+.karaoke-screen{
+    background-color: black;
+    height: calc(100vh - 200px);
+    width: 100%;
+    display: flex;
+}
+.sub-players{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /*grid-gap: 2vw;*/
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 800px;
+    height: 650px;
+    background: blue;
+}
+.single-player-view{
+    background-color: red;
+    margin: 15px 15px;
+}
+.mic-image{
+    position: absolute;
+    top: 3%;
+    right: 0;
+    width: 100%;
+}
+#app{
+    width: 100%;
 }
